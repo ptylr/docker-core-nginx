@@ -17,7 +17,7 @@ MAINTAINER Paul Taylor <me@ptylr.com>
 ENV REFRESHED_AT 2024-07-07
 
 RUN apt-get -yqq update
-RUN apt-get -yqq install build-essential libpcre3 libpcre3-dev zlib1g zlib1g-dev libssl-dev libgd-dev libxml2 libxml2-dev uuid-dev vsftpd
+RUN apt-get -yqq install build-essential libpcre3 libpcre3-dev zlib1g zlib1g-dev libssl-dev libgd-dev libxml2 libxml2-dev uuid-dev
 
 RUN mkdir /scratch
 ADD nginx-1.27.0.tar.gz /scratch
@@ -26,10 +26,6 @@ RUN ./configure --prefix=/usr/local/ptylr/nginx --with-http_ssl_module --with-pc
 RUN make && make install
 RUN rm -rf /scratch/nginx-1.27.0
 EXPOSE 80/tcp 443/tcp
-
-RUN sudo cp /etc/vsftpd.conf /etc/vsftpd.conf.bak
-RUN useradd -p "Xl/4mx4ZrQ.SQ" ptylr
-EXPOSE 20/tcp 21/tcp
 
 ADD startcontainer.sh /opt/container/
 RUN chmod u+x /opt/container/startcontainer.sh

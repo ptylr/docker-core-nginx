@@ -10,7 +10,7 @@ https://ptylr.com
 https://www.linkedin.com/in/ptylr/
 ```
 # ptylr/docker-core-java
-Extends ptylr/docker-core-java with NGINX 1.2.7 & vsftp for additional chained images.
+Extends ptylr/docker-core-java with NGINX 1.2.7 for additional chained images.
 
 ```
 ubuntu:22.04
