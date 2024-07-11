@@ -9,7 +9,7 @@ _______/  |_ ___.__.|  |_______
 https://ptylr.com
 https://www.linkedin.com/in/ptylr/
 ```
-# ptylr/docker-core-java
+# ptylr/docker-core-nginx
 Extends ptylr/docker-core-java with NGINX 1.2.7 for additional chained images.
 
 ```
