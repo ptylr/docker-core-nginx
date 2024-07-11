@@ -19,6 +19,40 @@ ubuntu:22.04
       -> docker-core-nginx
 ```
 
+# Usage
+Add nginx.conf to /usr/local/ptylr/nginx/conf/
+```shell
+worker_processes  1;
+user www-data www-data;
+
+error_log  logs/error.log;
+
+events {
+    worker_connections  1024;
+}
+
+http {
+    include       mime.types;
+    default_type  application/octet-stream;
+
+    log_format  main  '$remote_addr - $remote_user [$time_local] "$request" '
+                      '$status $body_bytes_sent "$http_referer" '
+                      '"$http_user_agent" "$http_x_forwarded_for"';
+
+    sendfile        on;
+    keepalive_timeout  65;
+
+    server {
+        listen       80;
+        server_name  localhost;
+        root   /var/www/static;
+
+        location / {
+            autoindex on;
+        }
+    }
+}
+
 # Licence
 MIT License
 
